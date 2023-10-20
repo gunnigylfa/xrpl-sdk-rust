@@ -13,18 +13,10 @@ thiserror = "1"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 tokio = { version = "1", features = ["full"] }
-reqwest_default = { package = "reqwest", version = "0.11.15", features = ["json"], optional = true }
-reqwest_rustls = { package = "reqwest", version = "0.11.15", default_features = false, features = ["json", "rustls-tls"], optional = true }
-
+reqwest = { version = "0.11", features = ["json"] }
 sha2 = "0.10"
 libsecp256k1 = "0.7"
 tracing = "0.1"
 xrpl_types = { path = "../xrpl_types", version = "0.15" }
 xrpl_api = { path = "../xrpl_api", version = "0.15" }
 xrpl_binary_codec = { path = "../xrpl_binary_codec", version = "0.15" }
-
-[features]
-default = ["thiserror", "serde", "serde_json", "tokio", "reqwest_default"]
-rustls = ["thiserror", "serde", "serde_json", "tokio", "reqwest_rustls"]
-
-
